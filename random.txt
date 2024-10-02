@@ -11,13 +11,13 @@ function generateRandomString($length) {
 }
 
 // Loop untuk membuat 5 file
-for ($i = 0; $i < 80; $i++) {
+for ($i = 0; $i < 800; $i++) {
     // Membuat nama file acak dengan panjang random
-    $panjangNamaFile = rand(5, 15); // Panjang nama file random antara 5-15 karakter
+    $panjangNamaFile = rand(5, 40); // Panjang nama file random antara 5-15 karakter
     $namaFile = generateRandomString($panjangNamaFile) . "";
 
     // Menghasilkan string acak dengan ukuran sekitar 5-10 MB
-    $ukuranFileMB = rand(10, 40); // Ukuran file acak antara 5-10 MB
+    $ukuranFileMB = rand(2, 500); // Ukuran file acak antara 5-10 MB
     $ukuranFileByte = $ukuranFileMB * 1024 * 1024; // Konversi ke byte
     $isiFile = generateRandomString($ukuranFileByte);
 
