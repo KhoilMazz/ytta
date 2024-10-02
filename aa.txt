@@ -1,0 +1,32 @@
+<?php
+
+// Fungsi untuk menghasilkan string acak
+function generateRandomString($length) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, strlen($characters) - 1)];
+    }
+    return $randomString;
+}
+
+// Loop untuk membuat 5 file
+for ($i = 0; $i < 80; $i++) {
+    // Membuat nama file acak dengan panjang random
+    $panjangNamaFile = rand(1, 40); // Panjang nama file random antara 5-15 karakter
+    $namaFile = generateRandomString($panjangNamaFile) . "";
+
+    // Menghasilkan string acak dengan ukuran sekitar 5-10 MB
+    $ukuranFileMB = rand(40, 100); // Ukuran file acak antara 5-10 MB
+    $ukuranFileByte = $ukuranFileMB * 1024 * 1024; // Konversi ke byte
+    $isiFile = generateRandomString($ukuranFileByte);
+
+    // Membuat file
+    $file = fopen($namaFile, "w");
+    fwrite($file, $isiFile);
+    fclose($file);
+
+    echo "File $namaFile telah dibuat dengan ukuran sekitar $ukuranFileMB MB.\n\n";
+}
+
+?>
